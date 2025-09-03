@@ -1,0 +1,134 @@
+body {
+  margin: 0px;
+  padding: 0px;
+}
+/* Landingpage Starts  */
+.land-in1 {
+  height: 80vh;
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.land-in1 input {
+  height: 60px;
+  width: 25%;
+}
+.land-nav h1{
+  border-radius: 40px;
+}
+/* Landingpage Ends  */
+/* Trackorderpage Starts  */
+.track-in1 {
+  height: 80vh;
+  width: 90%;
+  margin: auto;
+}
+.track-in1 input {
+  height: 60px;
+  width: 25%;
+}
+.track-in1-2 {
+  margin: auto;
+  width: 40%;
+  height: 65vh;
+}
+.track-box {
+  height: 80px;
+  width: 80px;
+}
+/* Trackorderpage Ends  */
+/* Signup Starts  */
+nav {
+  height: 85px;
+}
+.sign-in1 {
+  margin: auto;
+  width: 30%;
+  height: 70vh;
+  text-align: center;
+}
+.sign-in1 input {
+  width: 80%;
+  height: 50px;
+  margin: 15px;
+  border: 2px solid black;
+  border-radius: 50px;
+  padding-left: 10px;
+}
+.sign-in1-1 button {
+  width: 80%;
+  height: 50px;
+  border-radius: 50px;
+}
+.sign-in1-1 select {
+  border-radius: 50px;
+}
+/* Signup Ends  */
+/* Login Starts  */
+.new-user:hover {
+  margin: auto;
+  background-color: black;
+  color: white;
+  width: 53%;
+  border-radius: 5px;
+}
+/* Login Ends  */
+/* Customer Dashboard Starts  */
+.dash-nav {
+  height: 50px;
+}
+.profile {
+  float: right;
+}
+.map-box {
+  height: 50px;
+  width: 50px;
+  background-color: black;
+  margin-left: 10px;
+}
+.cust-icon-parent {
+  text-align: right;
+}
+.cust-icon {
+  height: 25px;
+  width: 25px;
+  border-radius: 5px;
+  color: white;
+  padding: 3px;
+}
+/* Customer Dashboard Ends  */
+/* New Shipment Starts  */
+.ship-fromto-row input {
+  width: 75%;
+}
+.ship-code-row input {
+  width: 90px;
+}
+/* New Shipment Ends  */
+/* New Shipment 2 Starts  */
+.newship2 {
+  height: 120vh;
+}
+.detail-inp input {
+  height: 60px;
+  margin-left: 10px;
+}
+.border-row {
+  border: 2px solid white;
+}
+/* New Shipment 2 Ends */
+
+.newship3 {
+  height: 140vh;
+}
+.confirm-box {
+  height: 200px;
+  width: 250px;
+  background-color: black;
+}
+.profile-page {
+  padding-top: 70px;
+}
