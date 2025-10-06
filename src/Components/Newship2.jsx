@@ -3,82 +3,59 @@ import { Link } from "react-router-dom";
 
 export default function Newship2() {
   return (
-    <div className="newship2">
-      <div className="dash-nav mt-2 ps-5 bg-secondary pt-2">
-        <div className="logo btn d-inline">
-          <h3 className="d-inline">
-            <Link to="/dashboard" className="text-decoration-none text-light">
-              Home
-            </Link>
-          </h3>
-        </div>
-        <div className="logo btn d-inline">
-          <h3 className="d-inline">
-            <Link to="/newship" className="text-decoration-none text-light">
-              Ship
-            </Link>
-          </h3>
-        </div>
-        <div className="logo btn d-inline">
-          <h3 className="d-inline">
-            <Link to="/trackpage" className="text-decoration-none text-light">
-              Track
-            </Link>
-          </h3>
-        </div>
-        <div className="profile btn d-inline">
-          <h3 className="d-inline">
-            <Link to="/profile" className="text-decoration-none text-light">
-              My Profile
-            </Link>
-          </h3>
-        </div>
+    <div className="newship2 min-h-screen mt-28">
+      <div className="dash-nav bg-gray-700 text-white px-5 py-3 flex flex-wrap justify-center md:justify-start gap-6">
+        <Link to="/dashboard" className="nav-link">Home</Link>
+        <Link to="/newship" className="nav-link">Ship</Link>
+        <Link to="/trackpage" className="nav-link">Track</Link>
+        <Link to="/profile" className="nav-link">My Profile</Link>
       </div>
 
-      <div className="container bg-secondary pt-3 ps-5 mt-3 pb-3 rounded">
-        <small className="text-light fw-bold">Shipping Details:</small> <br />
-        <div className="mt-3 fw-bold text-light mb-4">
-          <small>What are the Contents of the shipment?</small> <br />
-          <input type="radio" name="shipment" /> Document{" "}
-          <input type="radio" name="shipment" /> Packages
+      <div className="container mx-auto bg-gray-700 text-white p-6 mt-6 rounded-lg shadow-lg">
+        <small className="font-semibold">Shipping Details:</small>
+
+        <div className="mt-4 font-semibold mb-5">
+          <small>What are the contents of the shipment?</small> <br />
+          <label className="mr-4">
+            <input type="radio" name="shipment" className="mr-2" /> Document
+          </label>
+          <label>
+            <input type="radio" name="shipment" className="mr-2" /> Packages
+          </label>
         </div>
-        <div className="row fw-bold text-light mb-3 detail-inp">
-          <small>
-            Please provide additional details on the contents of the shipment.
-          </small>{" "}
-          <br />
-          <input type="text" className="w-50" />
+
+        <div className="fw-bold text-light mb-5">
+          <small>Please provide additional details on the contents of the shipment.</small> <br />
+          <input type="text" className="detail-input mt-2" placeholder="Enter shipment details..." />
         </div>
-        <div className="row mt-3">
-          <small className="fw-bold text-light mt-3">Select Packaging</small>
-          <div className="row mt-4 border-row p-3">
-            <div className="col-4 fw-bold text-light ms-4">
-              Packaging: <br /> <input type="text" className="w-100" />
-            </div>
-            <div className="col-3 fw-bold text-light">
-              Quality: <br /> <input type="text" />
-            </div>
-            <div className="col-3 fw-bold text-light">
-              Weight: <br /> <input type="text" />
+
+        <div className="mt-5">
+          <small className="font-semibold">Select Packaging</small>
+          <div className="border-section mt-4 p-5 rounded-lg">
+            <div className="flex flex-col md:flex-row gap-6">
+              <div className="flex-1">
+                <label className="font-semibold block mb-2">Packaging:</label>
+                <input type="text" className="input-field w-full" placeholder="Enter packaging type" />
+              </div>
+              <div className="flex-1">
+                <label className="font-semibold block mb-2">Quality:</label>
+                <input type="text" className="input-field w-full" placeholder="Enter quality" />
+              </div>
+              <div className="flex-1">
+                <label className="font-semibold block mb-2">Weight:</label>
+                <input type="text" className="input-field w-full" placeholder="Enter weight" />
+              </div>
             </div>
           </div>
         </div>
-        <div className="col-6 m-auto">
-          <button className="btn btn-dark mt-5 w-100">
-            <Link to="/newship" className="text-decoration-none">
-              Go Back
-            </Link>
-          </button>
-        </div>
-        <div className="col-6 mt-1 mx-auto ">
-          <button className="btn btn-dark w-100">
-            <Link
-              to="/newship/newship2/newship3"
-              className="text-decoration-none"
-            >
-              Next
-            </Link>
-          </button>
+
+        <div className="flex flex-col md:flex-row justify-center items-center gap-3 mt-8">
+          <Link to="/newship" className="w-full md:w-1/2">
+            <button className="nav-btn w-full">Go Back</button>
+          </Link>
+          <Link to="/newship/newship2/newship3" className="w-full md:w-1/2">
+            <button className="nav-btn w-full">Next</button>
+          </Link>
         </div>
       </div>
     </div>

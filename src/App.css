@@ -3,22 +3,124 @@ body {
   padding: 0px;
 }
 /* Landingpage Starts  */
-.land-in1 {
-  height: 80vh;
+.landing-navbar {
+  background-color: #111;
+  color: white;
+  padding: 15px 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.nav-container {
   width: 90%;
-  margin: auto;
+  margin: 0 auto;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 20px;
 }
-.land-in1 input {
-  height: 60px;
-  width: 25%;
+
+.logo-text {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
 }
-.land-nav h1{
-  border-radius: 40px;
+
+.logo-text:hover {
+  color: #bbb;
 }
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #ccc;
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+  width: 30px;
+  height: 25px;
+  position: relative;
+}
+
+.bar {
+  background-color: white;
+  height: 3px;
+  width: 100%;
+  margin: 4px 0;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+.bar.open:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 6px);
+}
+
+.bar.open:nth-child(2) {
+  opacity: 0;
+}
+
+.bar.open:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -6px);
+}
+
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 65px;
+    right: 0;
+    background-color: #111;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  .nav-links.active {
+    max-height: 300px;
+    padding: 20px 0;
+  }
+
+  .nav-links li {
+    margin: 15px 0;
+  }
+}
+
+@media (max-width: 425px) {
+  .logo-text {
+    font-size: 1.5rem;
+  }
+
+  .nav-links li a {
+    font-size: 1rem;
+  }
+}
+
 /* Landingpage Ends  */
 /* Trackorderpage Starts  */
 .track-in1 {
@@ -41,94 +143,824 @@ body {
 }
 /* Trackorderpage Ends  */
 /* Signup Starts  */
-nav {
-  height: 85px;
+/* Default desktop design already handled by Tailwind */
+
+/* Tablets and below */
+@media (max-width: 1024px) {
+  .signup-container {
+    width: 50% !important;
+  }
 }
-.sign-in1 {
-  margin: auto;
-  width: 30%;
-  height: 70vh;
-  text-align: center;
+
+/* Mobile screens (≤768px) */
+@media (max-width: 768px) {
+  .signup-container {
+    width: 80% !important;
+  }
 }
-.sign-in1 input {
-  width: 80%;
-  height: 50px;
-  margin: 15px;
-  border: 2px solid black;
-  border-radius: 50px;
-  padding-left: 10px;
+
+/* Small screens (≤425px) */
+@media (max-width: 425px) {
+  .signup-container {
+    width: 95% !important;
+    padding: 1.5rem !important;
+  }
+
+  input,
+  select {
+    height: 45px !important;
+    font-size: 0.9rem !important;
+  }
+
+  button {
+    height: 45px !important;
+    font-size: 1rem !important;
+  }
 }
-.sign-in1-1 button {
-  width: 80%;
-  height: 50px;
-  border-radius: 50px;
-}
-.sign-in1-1 select {
-  border-radius: 50px;
-}
+
 /* Signup Ends  */
 /* Login Starts  */
-.new-user:hover {
-  margin: auto;
-  background-color: black;
-  color: white;
-  width: 53%;
-  border-radius: 5px;
+@media (max-width: 1024px) {
+  .login-container {
+    width: 50% !important;
+  }
 }
+
+@media (max-width: 768px) {
+  .login-container {
+    width: 80% !important;
+  }
+}
+
+@media (max-width: 425px) {
+  .login-container {
+    width: 95% !important;
+    padding: 1.5rem !important;
+  }
+
+  input,
+  select {
+    height: 45px !important;
+    font-size: 0.9rem !important;
+  }
+
+  button {
+    height: 45px !important;
+    font-size: 1rem !important;
+  }
+}
+
 /* Login Ends  */
+/* Profile Starts */
+@media (max-width: 1024px) {
+  .profile-container {
+    width: 60% !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-container {
+    width: 80% !important;
+  }
+
+  h3 {
+    font-size: 1.25rem !important;
+  }
+
+  button {
+    font-size: 1rem !important;
+    padding: 0.75rem !important;
+  }
+}
+
+@media (max-width: 425px) {
+  .profile-container {
+    width: 95% !important;
+    padding: 1.5rem !important;
+  }
+
+  h3 {
+    font-size: 1.1rem !important;
+  }
+
+  button {
+    font-size: 0.95rem !important;
+    padding: 0.6rem !important;
+  }
+}
+
+/* Profile Ends */
+/* Customer Profile Starts */
+@media (max-width: 1024px) {
+  .dash-nav {
+    width: 70% !important;
+    padding: 1.5rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .dash-nav {
+    width: 85% !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    padding: 1.25rem !important;
+  }
+
+  .dash-nav a {
+    font-size: 1.1rem !important;
+  }
+}
+
+@media (max-width: 425px) {
+  .dash-nav {
+    width: 95% !important;
+    padding: 1rem !important;
+  }
+
+  .dash-nav a {
+    font-size: 1rem !important;
+  }
+
+  h1 {
+    font-size: 1.5rem !important;
+  }
+
+  p {
+    font-size: 1rem !important;
+  }
+}
+
+/* Customer Profile Ends */
 /* Customer Dashboard Starts  */
-.dash-nav {
-  height: 50px;
+@media (max-width: 1024px) {
+  table th,
+  table td {
+    padding: 0.75rem !important;
+    font-size: 0.95rem !important;
+  }
 }
-.profile {
-  float: right;
+
+@media (max-width: 768px) {
+  .dash-nav {
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+  }
+
+  table {
+    font-size: 0.9rem !important;
+  }
+
+  .map-box {
+    height: 35px !important;
+    width: 35px !important;
+  }
+
+  nav h2 {
+    font-size: 1rem !important;
+  }
 }
-.map-box {
-  height: 50px;
-  width: 50px;
-  background-color: black;
-  margin-left: 10px;
-}
-.cust-icon-parent {
-  text-align: right;
-}
-.cust-icon {
-  height: 25px;
-  width: 25px;
-  border-radius: 5px;
-  color: white;
-  padding: 3px;
+
+@media (max-width: 425px) {
+  table th,
+  table td {
+    padding: 0.5rem !important;
+  }
+
+  .dash-nav {
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  .cust-icon {
+    height: 22px !important;
+    width: 22px !important;
+  }
 }
 /* Customer Dashboard Ends  */
 /* New Shipment Starts  */
-.ship-fromto-row input {
-  width: 75%;
+.nav-link {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
-.ship-code-row input {
+
+.nav-link:hover {
+  color: #d1d5db;
+  text-decoration: underline;
+}
+
+.input-field {
+  width: 75%;
+  padding: 8px;
+  border: 2px solid #1f2937;
+  border-radius: 6px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.input-field:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 6px rgba(37, 99, 235, 0.4);
+}
+
+.input-small {
   width: 90px;
+  padding: 6px;
+  border: 2px solid #1f2937;
+  border-radius: 6px;
+}
+
+.next-btn {
+  background-color: #111827;
+  color: white;
+  padding: 10px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.next-btn:hover {
+  background-color: #2563eb;
+  transform: translateY(-2px);
+}
+@media (max-width: 768px) {
+  .input-field {
+    width: 100%;
+  }
+
+  .input-small {
+    width: 80px;
+  }
+
+  .nav-link {
+    font-size: 1rem;
+  }
+
+  .from-section,
+  .to-section {
+    border-left: none;
+    border-top: 4px solid #4b5563;
+    padding-top: 1rem;
+  }
 }
 /* New Shipment Ends  */
 /* New Shipment 2 Starts  */
-.newship2 {
-  height: 120vh;
+.nav-link {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
-.detail-inp input {
+
+.nav-link:hover {
+  color: #d1d5db;
+  text-decoration: underline;
+}
+
+.input-field {
+  padding: 10px;
+  border: 2px solid #1f2937;
+  border-radius: 6px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.input-field:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 6px rgba(37, 99, 235, 0.4);
+}
+
+.detail-input {
+  width: 80%;
   height: 60px;
-  margin-left: 10px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 2px solid #1f2937;
+  color: #111827;
+  outline: none;
+  transition: all 0.3s ease;
 }
-.border-row {
+
+.detail-input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 6px rgba(37, 99, 235, 0.4);
+}
+
+.border-section {
   border: 2px solid white;
+  background-color: rgba(255, 255, 255, 0.05);
 }
+
+.nav-btn {
+  background-color: #111827;
+  color: white;
+  padding: 10px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+  background-color: #2563eb;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .detail-input {
+    width: 100%;
+  }
+
+  .nav-link {
+    font-size: 1rem;
+  }
+
+  .border-section {
+    padding: 1.5rem;
+  }
+}
+
 /* New Shipment 2 Ends */
+/* New Ship 3 Starts */
+.nav-link {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #d1d5db;
+  text-decoration: underline;
+}
 
 .newship3 {
-  height: 140vh;
+  background-color: #f3f4f6;
+  padding-bottom: 40px;
 }
+
+.input-field {
+  background-color: #f9fafb;
+  color: #111827;
+  border: 2px solid #1f2937;
+  border-radius: 8px;
+  padding: 10px 15px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.input-field:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 8px rgba(37, 99, 235, 0.4);
+}
+
+.nav-btn {
+  background-color: #111827;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+  background-color: #2563eb;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .nav-link {
+    font-size: 1rem;
+  }
+
+  .input-field {
+    width: 100%;
+  }
+
+  .container {
+    padding: 1.5rem;
+  }
+}
+/* New Ship 3 Ends */
+/* Confirm Ship Starts */
+.confirmship {
+  min-height: 100vh;
+  background-color: #2f2f2f;
+}
+
+.dash-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  margin: 10px 15px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #d1d1d1 !important;
+}
+
 .confirm-box {
   height: 200px;
   width: 250px;
   background-color: black;
+  border-radius: 10px;
+  margin: 0 auto;
 }
-.profile-page {
-  padding-top: 70px;
+
+@media (max-width: 768px) {
+  .confirm-box {
+    width: 80%;
+    height: 150px;
+  }
+
+  .nav-links a {
+    font-size: 1rem;
+    margin: 8px 10px;
+  }
 }
+
+@media (max-width: 480px) {
+  .nav-links {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nav-links a {
+    display: block;
+    margin: 6px 0;
+  }
+
+  .confirm-box {
+    width: 90%;
+    height: 130px;
+  }
+}
+
+/* Confirm Ship Ends */
+/* Track Page Starts */
+.trackpage {
+  min-height: 100vh;
+  width: 100%;
+  padding: 40px 20px;
+}
+
+.trackpage-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.trackpage-input {
+  width: 320px;
+  max-width: 90%;
+  padding: 12px 15px;
+  border: 2px solid #333;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.trackpage-btn {
+  padding: 12px 30px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+  .trackpage-inner {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .trackpage-input {
+    width: 80%;
+  }
+
+  .trackpage-btn {
+    width: 60%;
+  }
+}
+
+@media (max-width: 480px) {
+  .trackpage-input {
+    width: 90%;
+    font-size: 0.9rem;
+  }
+
+  .trackpage-btn {
+    width: 80%;
+    font-size: 0.9rem;
+  }
+}
+
+/* Track Page Ends */
+/* Track Order Page Starts */
+.track-page {
+  min-height: 100vh;
+}
+
+.track-input-section {
+  padding: 20px;
+}
+
+.track-input {
+  width: 300px;
+  max-width: 90%;
+  padding: 12px 15px;
+  border: 2px solid #333;
+  border-radius: 5px;
+}
+
+.track-btn {
+  padding: 12px 30px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.track-info {
+  width: 90%;
+  max-width: 800px;
+  border-radius: 10px;
+}
+
+.track-box {
+  height: 50px;
+  width: 50px;
+  border-radius: 10px;
+}
+
+.track-text small {
+  color: #111;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .track-input-section {
+    flex-direction: column;
+  }
+
+  .track-input {
+    width: 80%;
+  }
+
+  .track-btn {
+    width: 60%;
+  }
+
+  .track-info {
+    padding: 20px;
+  }
+
+  .track-box {
+    height: 40px;
+    width: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .track-input {
+    width: 90%;
+    font-size: 0.9rem;
+  }
+
+  .track-btn {
+    width: 80%;
+    font-size: 0.9rem;
+  }
+
+  .track-text small {
+    font-size: 0.85rem;
+  }
+}
+
+/* Track Order Page Ends */
+/* Driver Dash Starts */
+.driverdash-container {
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.customer-profile {
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 50px 20px;
+  max-width: 700px;
+  width: 100%;
+}
+
+.driverdash-buttons .btn {
+  transition: all 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+.driverdash-buttons .btn:hover {
+  background-color: #343a40;
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .driverdash-buttons {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .driverdash-buttons .btn {
+    width: 80%;
+    font-size: 1.1rem;
+  }
+
+  .customer-profile {
+    padding: 30px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .driverdash-buttons .btn {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .customer-profile {
+    padding: 25px 10px;
+  }
+}
+
+/* Driver Dash Ends  */
+/* Driver Profile Starts */
+.driver-profile {
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  padding-bottom: 50px;
+}
+
+.driver-nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.dash-nav a {
+  transition: all 0.3s ease;
+}
+.dash-nav a:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
+.table-header {
+  background-color: #343a40;
+  color: white;
+  padding: 10px 0;
+  border-radius: 5px;
+}
+
+.cust-icon {
+  font-size: 24px;
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.cust-icon:hover {
+  background-color: #212529;
+}
+
+@media (max-width: 992px) {
+  .table-header div {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .table-header {
+    font-size: 0.85rem;
+    padding: 5px;
+  }
+
+  .driver-nav h3 {
+    font-size: 1.1rem;
+  }
+
+  .driver-nav .btn {
+    padding: 6px 15px;
+  }
+
+  .pagination-icons {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .driver-profile {
+    padding: 20px 10px;
+  }
+
+  .container {
+    padding: 10px;
+  }
+
+  .cust-icon {
+    font-size: 20px;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+  }
+}
+
+/* Driver Profile Ends */
+/* Admin Profile Starts */
+
+@media (max-width: 768px) {
+  .admin-nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .admin-nav a {
+    width: 80%;
+    text-align: center;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-nav a {
+    width: 90%;
+    padding: 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+}
+
+/* Admin Profile Ends  */
+/* Admin Dashboard Starts */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    text-align: left;
+  }
+
+  .container {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  nav h2 {
+    font-size: 1.2rem;
+  }
+
+  nav a {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .grid {
+    grid-template-columns: 1fr !important;
+    row-gap: 0.8rem;
+  }
+
+  .container {
+    margin: 0 0.5rem;
+  }
+
+  small,
+  p {
+    font-size: 0.85rem;
+  }
+}
+
+/* Admin Dashboard Ends */

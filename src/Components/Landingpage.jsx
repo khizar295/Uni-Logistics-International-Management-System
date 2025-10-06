@@ -1,27 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-
 export default function Landingpage() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => setMenuOpen(!menuOpen);
+
   return (
     <>
-      <nav className="land-nav mt-3 text-center">
-        <h1 className="btn btn-dark py-4 px-4 d-inline m-3">
-          <Link to="/signup" className="text-decoration-none fs-2">
-            Sign in
-          </Link>
-        </h1>
-        <h1 className="btn btn-dark py-4 px-4 d-inline m-3">
-          <Link to="/trackpage" className="text-decoration-none fs-2">
-            Track Order
-          </Link>
-        </h1>
-        <h1 className="btn btn-dark py-4 px-4 d-inline m-3">
-          <Link to="/landingpage" className="text-decoration-none fs-2">
-            Home
-          </Link>
-        </h1>
+      <nav className="landing-navbar">
+        <div className="nav-container">
+          <div className="nav-logo">
+            <Link to="/" className="logo-text">KCS (Khizar Courier Service)</Link>
+          </div>
 
+          <div className="nav-toggle" onClick={toggleMenu}>
+            <span className={menuOpen ? "bar open" : "bar"}></span>
+            <span className={menuOpen ? "bar open" : "bar"}></span>
+            <span className={menuOpen ? "bar open" : "bar"}></span>
+          </div>
+
+          <ul className={menuOpen ? "nav-links active" : "nav-links"}>
+            <li>
+              <Link to="/signup" onClick={() => setMenuOpen(false)}>
+                Sign In
+              </Link>
+            </li>
+            <li>
+              <Link to="/trackpage" onClick={() => setMenuOpen(false)}>
+                Track Order
+              </Link>
+            </li>
+            <li>
+              <Link to="/landingpage" onClick={() => setMenuOpen(false)}>
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link to="/contact" onClick={() => setMenuOpen(false)}>
+                Contact
+              </Link>
+            </li>
+            <li>
+              <Link to="/about" onClick={() => setMenuOpen(false)}>
+                About
+              </Link>
+            </li>
+          </ul>
+        </div>
       </nav>
     </>
   );

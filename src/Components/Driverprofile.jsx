@@ -1,12 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { MdSkipPrevious } from "react-icons/md";
-import { GrFormPrevious } from "react-icons/gr";
-import { MdSkipNext } from "react-icons/md";
-import { GrFormNext } from "react-icons/gr";
+import { MdSkipPrevious, MdSkipNext } from "react-icons/md";
+import { GrFormPrevious, GrFormNext } from "react-icons/gr";
 
 export default function Driverprofile() {
-  const Array = [
+  const shipments = [
     {
       id: "FGR5151RR9",
       name: "John Smith",
@@ -36,93 +34,86 @@ export default function Driverprofile() {
       status: "In Transit",
     },
     {
-      id: "GDG5615DF5",
+      id: "HJJ8877RE1",
       name: "Charlie Davis",
       orderDate: "2023-10-05",
       expDeliveryDate: "2023-10-09",
       status: "Delivered",
     },
   ];
+
   return (
-    <div>
-      <nav className="mt-3 ps-5 bg-secondary pt-4">
-        <div className="logo btn btn-dark d-inline p-3">
-          <h3 className="d-inline">
-            <Link to="/landingpage" className="text-decoration-none text-light">
-              Logout
-            </Link>
-          </h3>
-        </div>
+    <div className="driver-profile mt-23">
+      <nav className="driver-nav bg-secondary d-flex justify-content-between align-items-center px-4 py-3">
+        <h3 className="text-light m-0">Driver Dashboard</h3>
+        <Link to="/landingpage" className="btn btn-dark px-4 py-2">
+          Logout
+        </Link>
       </nav>
-      <div className="dash-nav mt-2 ps-5 bg-secondary pt-2">
-        <div className="logo btn d-inline">
-          <h3 className="d-inline">
-            <Link
-              to="/driverprofile"
-              className="text-decoration-none text-light"
-            >
-              Dashboard
-            </Link>
-          </h3>
-        </div>
-        <div className="profile btn d-inline">
-          <h3 className="d-inline">
-            <Link to="/profile" className="text-decoration-none text-light">
-              My Profile
-            </Link>
-          </h3>
+
+      <div className="dash-nav bg-secondary py-2 px-4 d-flex gap-4 justify-content-center flex-wrap">
+        <Link to="/driverprofile" className="text-decoration-none text-light fw-bold">
+          Dashboard
+        </Link>
+        <Link to="/profile" className="text-decoration-none text-light fw-bold">
+          My Profile
+        </Link>
+      </div>
+
+      <div className="container mt-4">
+        <div className="text-center">
+          <h4 className="fw-bold">Welcome Back, Driver 👋</h4>
+          <p className="fw-semibold mt-2">Shipments Dashboard</p>
         </div>
       </div>
 
-      <div className="mt-3 ms-5 mb-4">
-        <small className="fw-bold">Welcome Back, Driver</small> <br />
-        <small className="fw-bold">Shipments Dashboard</small>
-      </div>
-      <div className="container">
-        <div className="row">
-          <div className="col-6">
-            <small className="fw-bold">Displaying 1-5 of 5 results</small>
-          </div>
-          <div className="col-6 cust-icon-parent">
-            <MdSkipPrevious className="bg-secondary cust-icon" />{" "}
-            <GrFormPrevious className="bg-secondary cust-icon" />{" "}
-            <small>1</small> <GrFormNext className="bg-secondary cust-icon" />{" "}
-            <MdSkipNext className="bg-secondary cust-icon me-5" />
+      <div className="container mt-3">
+        <div className="d-flex justify-content-between align-items-center flex-wrap">
+          <small className="fw-bold">Displaying 1-5 of 5 results</small>
+          <div className="pagination-icons d-flex align-items-center gap-2 mt-2 mt-md-0">
+            <MdSkipPrevious className="bg-secondary cust-icon" />
+            <GrFormPrevious className="bg-secondary cust-icon" />
+            <small className="fw-bold">1</small>
+            <GrFormNext className="bg-secondary cust-icon" />
+            <MdSkipNext className="bg-secondary cust-icon me-3" />
           </div>
         </div>
       </div>
-      <div className="container mt-3 border border-dark border-2 p-4">
-        <div className="row">
-          <div className="col-2">Name</div>
-          <div className="col-2">Shipment ID</div>
-          <div className="col-2">Order Date</div>
-          <div className="col-2">Exp. Delivery Date</div>
-          <div className="col-2">Status</div>
-          <div className="col-2">Mark as Completed</div>
+
+      <div className="container mt-4 border border-dark border-2 rounded p-4 bg-light">
+        <div className="row fw-bold text-center table-header">
+          <div className="col-6 col-md-2">Name</div>
+          <div className="col-6 col-md-2">Shipment ID</div>
+          <div className="col-6 col-md-2">Order Date</div>
+          <div className="col-6 col-md-2">Exp. Delivery</div>
+          <div className="col-6 col-md-2">Status</div>
+          <div className="col-6 col-md-2">Completed</div>
         </div>
         <hr className="border border-dark border-2 mt-3" />
-        {Array.map((ele, index) => (
-          <div>
-            <div className="row" key={index}>
-              <div className="col-2">{ele.name}</div>
-              <div className="col-2">{ele.id}</div>
-              <div className="col-2">{ele.orderDate}</div>
-              <div className="col-2">{ele.expDeliveryDate}</div>
-              <div className="col-2">{ele.status}</div>
-              <div className="col-2">
-                <input type="checkbox" className="ms-5" />
+
+        {shipments.map((ele, index) => (
+          <div key={index}>
+            <div className="row text-center align-items-center">
+              <div className="col-6 col-md-2">{ele.name}</div>
+              <div className="col-6 col-md-2">{ele.id}</div>
+              <div className="col-6 col-md-2">{ele.orderDate}</div>
+              <div className="col-6 col-md-2">{ele.expDeliveryDate}</div>
+              <div className="col-6 col-md-2">{ele.status}</div>
+              <div className="col-6 col-md-2">
+                <input type="checkbox" className="form-check-input" />
               </div>
             </div>
-            <hr className="border border-dark border-2 mt-3" />
+            <hr className="border border-dark border-1 mt-3" />
           </div>
         ))}
+
         <div className="row">
-          <div className="col-6 mx-auto">
-            <button className="w-100 btn btn-dark">
-              <Link to="/trackorderpage" className="text-decoration-none">
+          <div className="col-12 col-md-6 mx-auto">
+            <button className="w-100 btn btn-dark py-2 mt-3">
+              <Link to="/trackorderpage" className="text-decoration-none text-light">
                 Submit Progress
               </Link>
-            </button>{" "}
+            </button>
           </div>
         </div>
       </div>

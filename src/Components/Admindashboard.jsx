@@ -1,12 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { MdSkipPrevious } from "react-icons/md";
-import { GrFormPrevious } from "react-icons/gr";
-import { MdSkipNext } from "react-icons/md";
-import { GrFormNext } from "react-icons/gr";
+import { MdSkipPrevious, MdSkipNext } from "react-icons/md";
+import { GrFormPrevious, GrFormNext } from "react-icons/gr";
 
 export default function Admindashboard() {
-  const Array = [
+  const shipments = [
     {
       id: "FGR5151RR9",
       name: "John Smith",
@@ -36,99 +34,99 @@ export default function Admindashboard() {
       status: "In Transit",
     },
     {
-      id: "GDG5615DF5",
+      id: "GDG5615DF6",
       name: "Charlie Davis",
       orderDate: "2023-10-05",
       expDeliveryDate: "2023-10-09",
       status: "Delivered",
     },
   ];
+
   return (
-    <div>
-      <nav className="mt-3 ps-5 bg-secondary pt-4">
-        <div className="logo btn btn-dark d-inline p-3">
-          <h3 className="d-inline">
-            <Link to="/landingpage" className="text-decoration-none text-light">
-              Logout
-            </Link>
-          </h3>
-        </div>
+    <div className="min-h-screen bg-gray-100 font-sans mt-28">
+      <nav className="bg-gray-700 py-4 px-6 flex justify-between items-center">
+        <h2 className="text-white text-2xl font-semibold">Admin Dashboard</h2>
+        <Link
+          to="/landingpage"
+          className="bg-red-600 hover:bg-red-700 text-white px-5 py-2 rounded-md text-lg font-semibold transition"
+        >
+          Logout
+        </Link>
       </nav>
-      <div className="dash-nav mt-2 ps-5 bg-secondary pt-2">
-        <div className="logo btn d-inline">
-          <h3 className="d-inline">
-            <Link
-              to="/admindashboard"
-              className="text-decoration-none text-light"
-            >
-              Dashboard
-            </Link>
-          </h3>
-        </div>
-        <div className="logo btn d-inline">
-          <h3 className="d-inline">
-            <Link
-              to="/adminnewship"
-              className="text-decoration-none text-light"
-            >
-              Ship
-            </Link>
-          </h3>
-        </div>
-        <div className="logo btn d-inline">
-          <h3 className="d-inline">
-            <Link to="/trackpage" className="text-decoration-none text-light">
-              Track
-            </Link>
-          </h3>
-        </div>
-        <div className="profile btn d-inline">
-          <h3 className="d-inline">
-            <Link to="/profile" className="text-decoration-none text-light">
-              My Profile
-            </Link>
-          </h3>
+
+      <div className="bg-gray-800 text-white py-3 flex justify-center gap-6 flex-wrap">
+        <Link
+          to="/admindashboard"
+          className="hover:bg-gray-700 bg-gray-900 px-6 py-2 rounded-md font-medium transition"
+        >
+          Dashboard
+        </Link>
+        <Link
+          to="/adminnewship"
+          className="hover:bg-gray-700 bg-gray-900 px-6 py-2 rounded-md font-medium transition"
+        >
+          Ship
+        </Link>
+        <Link
+          to="/trackpage"
+          className="hover:bg-gray-700 bg-gray-900 px-6 py-2 rounded-md font-medium transition"
+        >
+          Track
+        </Link>
+        <Link
+          to="/profile"
+          className="hover:bg-gray-700 bg-gray-900 px-6 py-2 rounded-md font-medium transition"
+        >
+          My Profile
+        </Link>
+      </div>
+
+      <div className="px-6 mt-6">
+        <p className="font-bold text-gray-800">Welcome Back, Admin</p>
+        <p className="font-bold text-gray-700 text-sm">Shipments Dashboard</p>
+      </div>
+
+      <div className="flex justify-between items-center px-6 mt-4">
+        <small className="font-semibold text-gray-700">
+          Displaying 1-5 of 5 results
+        </small>
+        <div className="flex items-center gap-2 text-gray-700 text-lg">
+          <MdSkipPrevious className="bg-gray-300 rounded cursor-pointer p-1 text-2xl" />
+          <GrFormPrevious className="bg-gray-300 rounded cursor-pointer p-1 text-2xl" />
+          <small>1</small>
+          <GrFormNext className="bg-gray-300 rounded cursor-pointer p-1 text-2xl" />
+          <MdSkipNext className="bg-gray-300 rounded cursor-pointer p-1 text-2xl" />
         </div>
       </div>
 
-      <div className="mt-3 ms-5 mb-4">
-        <small className="fw-bold">Welcome Back, Admin</small> <br />
-        <small className="fw-bold">Shipments Dashboard</small>
-      </div>
-      <div className="container">
-        <div className="row">
-          <div className="col-6">
-            <small className="fw-bold">Displaying 1-5 of 5 results</small>
-          </div>
-          <div className="col-6 cust-icon-parent">
-            <MdSkipPrevious className="bg-secondary cust-icon" />{" "}
-            <GrFormPrevious className="bg-secondary cust-icon" />{" "}
-            <small>1</small> <GrFormNext className="bg-secondary cust-icon" />{" "}
-            <MdSkipNext className="bg-secondary cust-icon me-5" />
-          </div>
+      <div className="container mx-auto mt-6 bg-white shadow-lg border border-gray-300 rounded-lg p-6">
+        <div className="grid grid-cols-6 font-bold border-b-2 border-gray-400 pb-3 text-gray-800 text-center">
+          <div>Name</div>
+          <div>Shipment ID</div>
+          <div>Order Date</div>
+          <div>Exp. Delivery</div>
+          <div>Status</div>
+          <div>Visual</div>
         </div>
-      </div>
-      <div className="container mt-3 border border-dark border-2 p-4">
-        <div className="row">
-          <div className="col-2">Name</div>
-          <div className="col-2">Shipment ID</div>
-          <div className="col-2">Order Date</div>
-          <div className="col-2">Exp. Delivery Date</div>
-          <div className="col-2">Status</div>
-          <div className="col-2">Visual</div>
-        </div>
-        <hr className="border border-dark border-2 mt-3" />
-        {Array.map((ele, index) => (
-          <div>
-            <div className="row" key={index}>
-              <div className="col-2">{ele.name}</div>
-              <div className="col-2">{ele.id}</div>
-              <div className="col-2">{ele.orderDate}</div>
-              <div className="col-2">{ele.expDeliveryDate}</div>
-              <div className="col-2">{ele.status}</div>
-              <div className="col-2 map-box"></div>
+
+        {shipments.map((ele, i) => (
+          <div key={i} className="border-b border-gray-300 py-4 grid grid-cols-6 text-center items-center text-gray-700">
+            <div>{ele.name}</div>
+            <div>{ele.id}</div>
+            <div>{ele.orderDate}</div>
+            <div>{ele.expDeliveryDate}</div>
+            <div
+              className={`font-semibold ${
+                ele.status === "Delivered"
+                  ? "text-green-600"
+                  : ele.status === "Pending"
+                  ? "text-yellow-500"
+                  : "text-blue-500"
+              }`}
+            >
+              {ele.status}
             </div>
-            <hr className="border border-dark border-2 mt-3" />
+            <div className="w-10 h-10 bg-gray-800 rounded-full mx-auto"></div>
           </div>
         ))}
       </div>

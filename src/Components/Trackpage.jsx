@@ -1,16 +1,16 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Trackpage() {
   return (
-    <div>
-      <div className="land-in1 text-center bg-dark">
+    <div className="trackpage bg-dark d-flex justify-content-center align-items-center">
+      <div className="trackpage-inner text-center">
         <input
           type="text"
           placeholder="Enter your reference number"
-          className="bg-light"
+          className="trackpage-input bg-light"
         />
-        <button className="btn btn-light py-3 px-5">
+        <button className="btn btn-light trackpage-btn">
           <Link
             to="/trackorderpage"
             className="text-decoration-none text-dark fw-bold"
@@ -20,5 +20,5 @@ export default function Trackpage() {
         </button>
       </div>
     </div>
-  )
+  );
 }
